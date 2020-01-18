@@ -1,6 +1,7 @@
 main = do
   bind
   noBind
+  noBindReverse
 
 stringToMonad str = return str
 
@@ -13,3 +14,7 @@ bind = do
  - 第二引数のアクションの戻り値を返す.
   -}
 noBind = stringToMonad "noBind" >>= putStrLn
+{-
+ - =<<は>>=と引数の向きが逆.
+  -}
+noBindReverse = putStrLn =<< stringToMonad "noBindReverse"
